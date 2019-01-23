@@ -7,7 +7,4 @@ Options : DataFrame(Pandas)
 
 Parameters
 ----------
-date :int 
-maturities:List
-strikes: List
-   
+date,maturities,strikes   
