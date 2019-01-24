@@ -1,18 +1,20 @@
 import os.path
 import urllib.request
 import zipfile
+
 import pandas as pd
 
-def ose(date, maturities, strikes):
-    '''Download Options DATA(NK255) from JPX   　
-    
+
+def ose(date, maturities, strikes, data_folder="D:\data\ose_zips"):
+    """Download Options DATA(NK255) from JPX   　
+
     Returns
     -------
     Options : DataFrame(Pandas)
-    
+
     Parameters
     ----------
-    date :int 
+    date :int
         #eg: 20190122
     maturities:list
         #eg1(monthly type): [201902]
@@ -20,7 +22,10 @@ def ose(date, maturities, strikes):
         #eg3: [201902 , 20190125]
     strikes: list
         #eg: [19000,20000]
-    
+
+    data_folder :str
+        download folder
+
     Examples
     --------
     >>>  ose(
@@ -28,14 +33,14 @@ def ose(date, maturities, strikes):
         [201902, 20190125],
         [19000, 20000]
         )
-    '''
+    """
 
-    if not os.path.isdir('zips'):
-        os.mkdir('zips')
-        print('mkdir >> zips')
+    if not os.path.isdir(data_folder):
+        os.mkdir(data_folder)
+        print(f' mkdir @ {data_folder}')
 
     fname = f'ose{str(date)}tp.zip'
-    f_path = f'zips/{fname}'
+    f_path = f'{data_folder}/{fname}'
     if not os.path.isfile(f_path):
         fbase = 'http://www.jpx.co.jp/markets/derivatives/option-price/data/'
         print(f'Download >> {fbase}/{fname} >> {f_path}')

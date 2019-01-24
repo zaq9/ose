@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(
     name='ose',
-    version='0.6.0',
+    version='0.7.0',
     description='Download Options DATA(NK255) from JPX',
     url='https://github.com/zaq9/ose',
     author='zaq',
@@ -15,5 +15,6 @@ setup(
         'Development Status :: 3 - Alpha',
     ],
     keywords=['options','market-data','python','finance'],
+    py_modules=["ose"],
     install_requires=['pandas'],
 )
